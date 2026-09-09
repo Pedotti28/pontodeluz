@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ponto de Luz — Amigurumis feitos à mão</title>
+<meta name="theme-color" content="#fffaf5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fffaf5;
+    --cream-2:#fef4ea;
+    --ink:#2c2620;
+    --ink-soft:#6b6055;
+    --terracotta:#c9785e;
+    --terracotta-deep:#a85f49;
+    --sage:#dbe4cf;
+    --sage-deep:#5f7a52;
+    --sky:#d7e2ec;
+    --gold:#e7b94e;
+    --line:#e7dcd0;
+    --radius-sm:4px;
+    --radius-lg:28px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .serif{font-family:'Fraunces',serif;}
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:640px){ .container{padding:0 20px;} }
+
+  /* ---------- Top strip ---------- */
+  .topbar{
+    background:var(--terracotta);
+    color:#fff8f2;
+    text-align:center;
+    font-size:12.5px;
+    letter-spacing:.06em;
+    padding:9px 16px;
+    font-weight:500;
+  }
+  .topbar span{opacity:.55;margin:0 10px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:rgba(255,250,245,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{
+    display:flex;align-items:center;gap:9px;
+    font-family:'Fraunces',serif;
+    font-size:22px;font-weight:500;
+    color:var(--ink);
+  }
+  .logo em{font-style:italic;color:var(--terracotta-deep);}
+  .logo-mark{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--sage);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .logo-mark svg{width:16px;height:16px;}
+  .nav-links{
+    display:flex;gap:34px;font-size:14.5px;color:var(--ink-soft);
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-actions{display:flex;align-items:center;gap:22px;font-size:14px;color:var(--ink-soft);}
+  .nav-actions .icon-link{display:flex;align-items:center;gap:7px;}
+  .nav-actions svg{width:19px;height:19px;stroke:var(--ink-soft);}
+  .bag-count{
+    background:var(--ink);color:#fff;
+    width:17px;height:17px;border-radius:50%;
+    font-size:10.5px;display:flex;align-items:center;justify-content:center;
+  }
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;}
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .menu-btn{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:76px 0 90px;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;gap:48px;} }
+  .eyebrow{
+    display:flex;align-items:center;gap:10px;
+    font-size:12.5px;letter-spacing:.08em;color:var(--terracotta-deep);
+    font-weight:600;margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--terracotta-deep);}
+  h1.hero-title{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:clamp(38px,5.4vw,60px);
+    line-height:1.06;
+    letter-spacing:-.01em;
+  }
+  h1.hero-title em{font-style:italic;color:var(--terracotta-deep);font-weight:500;}
+  .hero p.lead{
+    margin-top:22px;max-width:440px;
+    color:var(--ink-soft);font-size:16.5px;line-height:1.65;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 24px;
+    background:var(--ink);color:#fff8f2;
+    border-radius:var(--radius-sm);
+    font-size:14.5px;font-weight:500;
+    border:none;cursor:pointer;
+    transition:transform .18s ease, background .18s ease;
+  }
+  .btn:hover{background:var(--terracotta-deep);transform:translateY(-1px);}
+  .btn.ghost{
+    background:transparent;color:var(--ink);
+    border:1px solid var(--ink);
+  }
+  .btn.ghost:hover{background:var(--ink);color:#fff8f2;}
+  .btn-accent{background:var(--terracotta);}
+  .btn-accent:hover{background:var(--terracotta-deep);}
+  .hero-cta{margin-top:32px;}
+
+  .hero-art{position:relative;display:flex;justify-content:center;}
+  .hero-blob{
+    width:100%;max-width:440px;aspect-ratio:1/1;
+    background:linear-gradient(160deg,#e8b1a0,#d99a83);
+    border-radius:50% 50% 48% 52%/54% 48% 52% 46%;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .hero-blob-inner{
+    text-align:center;color:#fff8f2;
+  }
+  .hero-blob-inner svg{width:34px;height:34px;margin:0 auto 8px;}
+  .hero-blob-inner .name{
+    font-family:'Fraunces',serif;font-style:italic;font-size:26px;
+  }
+  .hero-blob-inner .tag{
+    font-size:10px;letter-spacing:.12em;opacity:.85;margin-top:4px;
+  }
+  .float-badge{
+    position:absolute;background:#fff;border-radius:14px;
+    padding:9px 14px;box-shadow:0 8px 24px rgba(60,40,25,.1);
+    font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:8px;
+  }
+  .float-1{top:-6%;left:-2%;background:var(--gold);color:#4a3810;font-family:'Fraunces',serif;font-style:italic;text-align:center;line-height:1.3;padding:16px 14px;border-radius:50%;width:104px;height:104px;flex-direction:column;justify-content:center;font-size:11px;}
+  .float-1 b{font-size:15px;display:block;}
+  .float-2{top:14%;right:-6%;}
+  .float-2 .dot{width:7px;height:7px;border-radius:50%;background:var(--sage-deep);}
+  .float-3{bottom:6%;left:-4%;color:var(--ink-soft);}
+  .sparkle{position:absolute;color:var(--terracotta);opacity:.6;}
+  .sparkle svg{width:22px;height:22px;}
+  .sp-1{top:2%;right:8%;}
+  .sp-2{bottom:16%;right:2%;}
+
+  /* ---------- Feature strip ---------- */
+  .feature-lead{
+    display:flex;align-items:center;gap:16px;
+    padding-bottom:44px;border-bottom:1px solid var(--line);
+    margin-bottom:44px;
+  }
+  .dot-trio{display:flex;}
+  .dot-trio span{
+    width:26px;height:26px;border-radius:50%;
+    border:3px solid var(--cream);margin-left:-9px;
+  }
+  .dot-trio span:first-child{margin-left:0;background:var(--terracotta);}
+  .dot-trio span:nth-child(2){background:var(--sage);}
+  .dot-trio span:nth-child(3){background:#f2d1b0;}
+  .feature-lead .t{font-weight:500;}
+  .feature-lead .s{color:var(--ink-soft);font-size:14.5px;}
+
+  .features{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:36px;
+    padding-bottom:70px;
+  }
+  @media (max-width:760px){ .features{grid-template-columns:1fr;gap:28px;} }
+  .feature{display:flex;gap:16px;align-items:flex-start;}
+  .feature .ic{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--cream-2);display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .feature .ic svg{width:19px;height:19px;stroke:var(--terracotta-deep);}
+  .feature h3{font-size:15.5px;font-weight:600;margin-bottom:4px;}
+  .feature p{color:var(--ink-soft);font-size:14px;}
+
+  /* ---------- Collection ---------- */
+  .section{padding:80px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-bottom:34px;flex-wrap:wrap;
+  }
+  h2.section-title{
+    font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(28px,3.6vw,40px);
+  }
+  h2.section-title em{font-style:italic;color:var(--terracotta-deep);}
+  .link-arrow{
+    font-size:14px;font-weight:500;color:var(--terracotta-deep);
+    display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+  }
+  .link-arrow svg{width:14px;height:14px;transition:transform .15s;}
+  .link-arrow:hover svg{transform:translateX(3px);}
+
+  .tabs{
+    display:flex;gap:28px;border-bottom:1px solid var(--line);
+    margin-bottom:34px;font-size:14.5px;color:var(--ink-soft);
+    overflow-x:auto;
+  }
+  .tab{
+    padding-bottom:14px;cursor:pointer;white-space:nowrap;
+    border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;
+    font-family:inherit;font-size:inherit;color:inherit;
+  }
+  .tab.active{color:var(--ink);border-color:var(--terracotta-deep);font-weight:500;}
+
+  .grid-products{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+  }
+  @media (max-width:900px){ .grid-products{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .grid-products{grid-template-columns:1fr;} }
+  .card{cursor:default;}
+  .card-img{
+    position:relative;aspect-ratio:1/1;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;margin-bottom:14px;
+  }
+  .card-img svg{width:26px;height:26px;margin-bottom:8px;opacity:.75;}
+  .card-img .lbl{
+    font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--terracotta-deep);
+  }
+  .card-fav{
+    position:absolute;top:12px;right:12px;
+    width:30px;height:30px;border-radius:50%;background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 3px 10px rgba(60,40,25,.08);
+  }
+  .card-fav svg{width:14px;height:14px;}
+  .card-flag{
+    position:absolute;bottom:12px;left:12px;
+    background:var(--ink);color:#fff8f2;font-size:10.5px;letter-spacing:.06em;
+    padding:5px 9px;border-radius:5px;
+  }
+  .cat-peach{background:linear-gradient(155deg,#f3d8c8,#e7b8a0);}
+  .cat-gold{background:linear-gradient(155deg,#f4e4bf,#e9cf94);}
+  .cat-sage{background:linear-gradient(155deg,#e6ecdc,#cdd9be);}
+  .cat-sky{background:linear-gradient(155deg,#e3ecf2,#c9dae5);}
+  .card-tag{font-size:11px;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:4px;}
+  .card-name-row{display:flex;justify-content:space-between;align-items:center;}
+  .card h4{font-size:15.5px;font-weight:600;}
+  .card-add{
+    width:28px;height:28px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .card-price{color:var(--terracotta-deep);font-size:13.5px;margin-top:2px;}
+
+  /* ---------- Quote / About ---------- */
+  .about{background:var(--sage);border-radius:var(--radius-lg);}
+  .about-grid{
+    display:grid;grid-template-columns:.85fr 1.15fr;gap:0;
+    align-items:stretch;
+  }
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+  .quote-panel{
+    background:linear-gradient(160deg,#f0c9b6,#e3a58e);
+    border-radius:var(--radius-lg) 0 0 var(--radius-lg);
+    padding:56px 44px;display:flex;flex-direction:column;justify-content:center;
+    position:relative;min-height:340px;
+  }
+  @media (max-width:860px){ .quote-panel{border-radius:var(--radius-lg) var(--radius-lg) 0 0;} }
+  .quote-panel p{
+    font-family:'Fraunces',serif;font-style:italic;font-size:24px;
+    line-height:1.35;color:#3a271e;
+  }
+  .quote-panel .who{
+    margin-top:22px;font-size:11px;letter-spacing:.1em;color:#5c4133;font-family:'Work Sans',sans-serif;font-style:normal;
+  }
+  .quote-sticker{
+    position:absolute;bottom:-16px;right:24px;
+    background:#fff8f2;padding:11px 16px;border-radius:10px;
+    font-size:13px;transform:rotate(-4deg);
+    box-shadow:0 8px 20px rgba(60,30,20,.12);
+  }
+  .about-text{padding:56px 48px;}
+  .about-text .eyebrow{color:var(--sage-deep);}
+  .about-text .eyebrow::before{background:var(--sage-deep);}
+  .about-text h2{
+    font-family:'Fraunces',serif;font-weight:500;font-size:clamp(26px,3.4vw,34px);
+    line-height:1.15;margin-bottom:18px;
+  }
+  .about-text h2 em{font-style:italic;color:var(--terracotta-deep);}
+  .about-text p{color:#4a5240;font-size:15.5px;line-height:1.7;max-width:480px;margin-bottom:22px;}
+  .about-text .link-arrow{color:var(--sage-deep);}
+
+  /* ---------- How it works ---------- */
+  .how-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
+  }
+  @media (max-width:700px){ .how-grid{grid-template-columns:1fr;} }
+  .how-card{
+    border:1px solid var(--line);border-radius:16px;padding:30px;
+    background:#fffdfa;
+  }
+  .how-card .ic{
+    width:38px;height:38px;border-radius:10px;background:var(--cream-2);
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+  }
+  .how-card .ic svg{width:18px;height:18px;stroke:var(--terracotta-deep);}
+  .how-card h3{font-size:16.5px;font-weight:600;margin-bottom:8px;}
+  .how-card p{color:var(--ink-soft);font-size:14.5px;line-height:1.6;}
+  .how-card .link-arrow{margin-top:12px;}
+
+  /* ---------- CTA ---------- */
+  .cta{
+    background:var(--terracotta);
+    border-radius:var(--radius-lg);
+    padding:64px 52px;
+    display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;
+  }
+  @media (max-width:760px){ .cta{grid-template-columns:1fr;padding:44px 30px;} }
+  .cta h2{
+    font-family:'Fraunces',serif;font-weight:500;color:#fff8f2;
+    font-size:clamp(26px,3.6vw,38px);line-height:1.15;
+  }
+  .cta h2 em{font-style:italic;color:#ffe4d3;}
+  .cta-side p{color:#fce6da;font-size:15px;margin-bottom:20px;line-height:1.6;}
+  .cta .btn{background:#fff8f2;color:var(--terracotta-deep);}
+  .cta .btn:hover{background:#fff;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:20px;}
+  .foot-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:32px;
+  }
+  @media (max-width:720px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  .foot-brand p{color:var(--ink-soft);font-size:14px;margin-top:10px;max-width:220px;}
+  .foot-col h5{font-size:13px;letter-spacing:.04em;margin-bottom:14px;color:var(--ink-soft);}
+  .foot-col a{display:block;font-size:14.5px;margin-bottom:9px;color:var(--ink);}
+  .foot-col a:hover{color:var(--terracotta-deep);}
+  .foot-social{display:flex;align-items:flex-start;justify-content:flex-end;gap:8px;font-size:14px;}
+  .foot-social svg{width:20px;height:20px;}
+  @media (max-width:720px){ .foot-social{justify-content:flex-start;grid-column:1/-1;} }
+
+  ::selection{background:var(--terracotta);color:#fff;}
+</style>
+</head>
+<body>
+
+<div class="topbar">AMIGURUMIS DE ALTA QUALIDADE <span>•</span> FEITOS À MÃO POR BRUNA PEDOTTI</div>
+
+<header>
+  <div class="container nav">
+    <a href="#top" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#5f7a52" stroke-width="2"><path d="M12 3v18M3 12h18" stroke-linecap="round" transform="rotate(45 12 12)"/></svg>
+      </span>
+      Ponto <em>de Luz</em>
+    </a>
+    <nav class="nav-links">
+      <a href="#colecao">Coleção</a>
+      <a href="#historia">Nossa história</a>
+      <a href="#comprar">Como comprar</a>
+      <a href="#atendimento">Atendimento</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="icon-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 8.6a5.5 5.5 0 0 0-9.3-4A5.5 5.5 0 0 0 2 8.6c0 6.4 9.5 11.4 9.5 11.4S20.8 15 20.8 8.6Z"/></svg>
+        <span>Favoritos</span>
+      </a>
+      <a href="#" class="icon-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span>Sacola</span>
+        <span class="bag-count">0</span>
+      </a>
+      <button class="menu-btn" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#2c2620" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">BEM-VINDA À PONTO DE LUZ</div>
+        <h1 class="hero-title">Um mundo de <em>amigurumis</em> fofos e cheios de personalidade.</h1>
+        <p class="lead">Todas as peças são totalmente artesanais, feitas à mão por mim, Bruna Pedotti. Aqui, cada criação nasce com tempo, cuidado e muita alegria.</p>
+        <div class="hero-cta">
+          <a href="#colecao" class="btn">
+            Conheça os amigurumis
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-blob">
+          <div class="hero-blob-inner">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.9L12 15.7 6.4 19.8l2.2-6.9L3 8.8h6.8L12 2z"/></svg>
+            <div class="name">amiguriluzi</div>
+            <div class="tag">FEITO À MÃO POR BRUNA</div>
+          </div>
+          <span class="sparkle sp-1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.9L12 15.7 6.4 19.8l2.2-6.9L3 8.8h6.8L12 2z"/></svg></span>
+          <span class="sparkle sp-2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.9L12 15.7 6.4 19.8l2.2-6.9L3 8.8h6.8L12 2z"/></svg></span>
+        </div>
+        <div class="float-badge float-1"><b>Feito com</b>luz<span>e carinho</span></div>
+        <div class="float-badge float-2"><span class="dot"></span>feito à mão, ponto por ponto</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <div class="container">
+    <div class="feature-lead">
+      <div class="dot-trio"><span></span><span></span><span></span></div>
+      <div>
+        <div class="t">Peças autorais</div>
+        <div class="s">criadas para realizar sonhos de infância</div>
+      </div>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.9L12 15.7 6.4 19.8l2.2-6.9L3 8.8h6.8L12 2z"/></svg></span>
+        <div><h3>Alta qualidade</h3><p>expressões fofas e acabamento cuidadoso</p></div>
+      </div>
+      <div class="feature">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 8.6a5.5 5.5 0 0 0-9.3-4A5.5 5.5 0 0 0 2 8.6c0 6.4 9.5 11.4 9.5 11.4S20.8 15 20.8 8.6Z"/></svg></span>
+        <div><h3>Totalmente artesanal</h3><p>feito à mão por Bruna Pedotti</p></div>
+      </div>
+      <div class="feature">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7V8Z"/><path d="M3.3 7l8.7 5 8.7-5M12 22V12"/></svg></span>
+        <div><h3>Peças com história</h3><p>processo mostrado nos stories</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLLECTION -->
+  <section class="section" id="colecao">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">CONHEÇA AS CRIAÇÕES</div>
+          <h2 class="section-title">Amigurumis <em>cheios de vida</em></h2>
+        </div>
+        <a href="https://instagram.com/pont.odeluz" target="_blank" class="link-arrow">
+          Ver no Instagram
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-filter="todos">Todos</button>
+        <button class="tab" data-filter="amigurumis">Amigurumis</button>
+        <button class="tab" data-filter="exclusivas">Peças exclusivas</button>
+        <button class="tab" data-filter="personalizados">Personalizados</button>
+      </div>
+
+      <div class="grid-products" id="productGrid">
+        <div class="card" data-cat="amigurumis">
+          <div class="card-img cat-peach"><svg viewBox="0 0 24 24" fill="none" stroke="#c9785e" stroke-width="1.6"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.9L12 15.7 6.4 19.8l2.2-6.9L3 8.8h6.8L12 2z"/></svg><span class="lbl">feito à mão</span>
+            <span class="card-fav"><svg viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="1.6"><path d="M20.8 8.6a5.5 5.5 0 0 0-9.3-4A5.5 5.5 0 0 0 2 8.6c0 6.4 9.5 11.4 9.5 11.4S20.8 15 20.8 8.6Z"/></svg></span>
+          </div>
+          <div class="card-tag">AMIGURUMIS</div>
+          <div class="card-name-row"><h4>Amigurumi personalizado</h4><span class="card-add">+</span></div>
+          <div class="card-price">Sob consulta</div>
+        </div>
+
+        <div class="card" data-cat="amigurumis">
+          <div class="card-img cat-gold"><svg viewBox="0 0 24 24" fill="none" stroke="#c9785e" stroke-width="1.6"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.9L12 15.7 6.4 19.8l2.2-6.9L3 8.8h6.8L12 2z"/></svg><span class="lbl">feito à mão</span>
+            <span class="card-fav"><svg viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="1.6"><path d="M20.8 8.6a5.5 5.5 0 0 0-9.3-4A5.5 5.5 0 0 0 2 8.6c0 6.4 9.5 11.4 9.5 11.4S20.8 15 20.8 8.6Z"/></svg></span>
+          </div>
+          <div class="card-tag">AMIGURUMIS</div>
+          <div class="card-name-row"><h4>Personagem dos sonhos</h4><span class="card-add">+</span></div>
+          <div class="card-price">Sob consulta</div>
+        </div>
+
+        <div class="card" data-cat="exclusivas">
+          <div class="card-img cat-sage"><svg viewBox="0 0 24 24" fill="none" stroke="#c9785e" stroke-width="1.6"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.9L12 15.7 6.4 19.8l2.2-6.9L3 8.8h6.8L12 2z"/></svg><span class="lbl">feito à mão</span>
+            <span class="card-fav"><svg viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="1.6"><path d="M20.8 8.6a5.5 5.5 0 0 0-9.3-4A5.5 5.5 0 0 0 2 8.6c0 6.4 9.5 11.4 9.5 11.4S20.8 15 20.8 8.6Z"/></svg></span>
+          </div>
+          <div class="card-tag">PEÇAS EXCLUSIVAS</div>
+          <div class="card-name-row"><h4>Criação cheia de afeto</h4><span class="card-add">+</span></div>
+          <div class="card-price">Sob consulta</div>
+        </div>
+
+        <div class="card" data-cat="exclusivas">
+          <div class="card-img cat-sky"><svg viewBox="0 0 24 24" fill="none" stroke="#c9785e" stroke-width="1.6"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.9L12 15.7 6.4 19.8l2.2-6.9L3 8.8h6.8L12 2z"/></svg><span class="lbl">feito à mão</span>
+            <span class="card-flag">AMIGURILUZI</span>
+            <span class="card-fav"><svg viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="1.6"><path d="M20.8 8.6a5.5 5.5 0 0 0-9.3-4A5.5 5.5 0 0 0 2 8.6c0 6.4 9.5 11.4 9.5 11.4S20.8 15 20.8 8.6Z"/></svg></span>
+          </div>
+          <div class="card-tag">PEÇAS EXCLUSIVAS</div>
+          <div class="card-name-row"><h4>Amiguriluzi especial</h4><span class="card-add">+</span></div>
+          <div class="card-price">Sob consulta</div>
+        </div>
+
+        <div class="card" data-cat="personalizados">
+          <div class="card-img cat-peach"><svg viewBox="0 0 24 24" fill="none" stroke="#c9785e" stroke-width="1.6"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.9L12 15.7 6.4 19.8l2.2-6.9L3 8.8h6.8L12 2z"/></svg><span class="lbl">feito à mão</span>
+            <span class="card-fav"><svg viewBox="0 0 24 24" fill="none" stroke="#2c2620" stroke-width="1.6"><path d="M20.8 8.6a5.5 5.5 0 0 0-9.3-4A5.5 5.5 0 0 0 2 8.6c0 6.4 9.5 11.4 9.5 11.4S20.8 15 20.8 8.6Z"/></svg></span>
+          </div>
+          <div class="card-tag">PERSONALIZADOS</div>
+          <div class="card-name-row"><h4>Feito para você</h4><span class="card-add">+</span></div>
+          <div class="card-price">Sob consulta</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / QUOTE -->
+  <section class="section" id="historia">
+    <div class="container">
+      <div class="about">
+        <div class="about-grid">
+          <div class="quote-panel">
+            <p>"Cada peça é feita à mão, com carinho e muita personalidade."</p>
+            <div class="who">PONTO DE LUZ</div>
+            <div class="quote-sticker">amigurumis, com luz</div>
+          </div>
+          <div class="about-text">
+            <div class="eyebrow">SOBRE AS PEÇAS</div>
+            <h2>Sonhos de infância em forma de <em>amigurumi.</em></h2>
+            <p>Aqui você encontra amigurumis de alta qualidade e com as expressões mais fofas. E o que é melhor: costumo realizar sonhos de infância. Sabe aquele desenho ou filme que você foi apaixonada(o), ou que a criança da sua vida é? Eu reproduzo para você. São carinhosamente chamados por nós da Ponto de Luz de <strong>amiguriluzi</strong>.</p>
+            <a href="https://instagram.com/pont.odeluz" target="_blank" class="link-arrow">
+              Acompanhe o processo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="comprar">
+    <div class="container">
+      <div class="eyebrow">TUDO EXPLICADINHO</div>
+      <h2 class="section-title" style="margin-bottom:34px;">Como a sua peça <em>chega até você.</em></h2>
+      <div class="how-grid">
+        <div class="how-card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+          <h3>Pagamento</h3>
+          <p>Você pode pagar por PIX, geralmente com 5% de desconto no valor da peça. Também aceitamos PicPay e PagSeguro, com parcelamento.</p>
+        </div>
+        <div class="how-card" id="atendimento">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.5 8.5 0 0 1-4-1L3 20l1.1-5.1a8.4 8.4 0 1 1 16.9-3.4Z"/></svg></span>
+          <h3>Atendimento</h3>
+          <p>O atendimento é personalizado. Clique no link do WhatsApp na Bio ou, se preferir, chame a Bruna por direct.</p>
+          <a href="https://instagram.com/pont.odeluz" target="_blank" class="link-arrow">
+            Falar pelo Instagram
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="how-card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="17.5" cy="18" r="1.5"/></svg></span>
+          <h3>Envio</h3>
+          <p>O envio é feito pelos Correios e o frete é calculado de acordo com o seu CEP. O Melhor Envio também pode ser uma opção mais viável.</p>
+        </div>
+        <div class="how-card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg></span>
+          <h3>Para Cornélio</h3>
+          <p>Para clientes de Cornélio, a peça pode ser levada até você sem custos adicionais. Será um prazer atender!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="cta">
+        <h2>Chegaremos à peça <em>ideal</em> para você.</h2>
+        <div class="cta-side">
+          <p>Veja todos os detalhes, acompanhe a produção e peça o seu orçamento pelo Instagram.</p>
+          <a href="https://instagram.com/pont.odeluz" target="_blank" class="btn">
+            Chamar no direct
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container foot-grid">
+    <div class="foot-brand">
+      <a href="#top" class="logo" style="font-size:19px;">
+        <span class="logo-mark" style="width:28px;height:28px;">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#5f7a52" stroke-width="2"><path d="M12 3v18M3 12h18" stroke-linecap="round" transform="rotate(45 12 12)"/></svg>
+        </span>
+        Ponto <em>de Luz</em>
+      </a>
+      <p>Amigurumis para realizar sonhos de infância.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Explore</h5>
+      <a href="#colecao">Amigurumis</a>
+      <a href="#historia">Sobre as peças</a>
+    </div>
+    <div class="foot-col">
+      <h5>Atendimento</h5>
+      <a href="#comprar">Como comprar</a>
+      <a href="https://instagram.com/pont.odeluz" target="_blank">Fale pelo Instagram</a>
+    </div>
+    <div class="foot-social">
+      <a href="https://instagram.com/pont.odeluz" target="_blank" class="icon-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+        @pont.odeluz
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Filtro de categorias
+  const tabs = document.querySelectorAll('.tab');
+  const cards = document.querySelectorAll('#productGrid .card');
+  tabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      tabs.forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      cards.forEach(card=>{
+        card.style.display = (filter==='todos' || card.dataset.cat===filter) ? '' : 'none';
+      });
+    });
+  });
+
+  // Menu mobile simples: rola até a coleção ao clicar no hambúrguer (placeholder de navegação)
+  document.querySelector('.menu-btn')?.addEventListener('click', ()=>{
+    document.querySelector('#colecao').scrollIntoView({behavior:'smooth'});
+  });
+</script>
+
+</body>
+</html>
